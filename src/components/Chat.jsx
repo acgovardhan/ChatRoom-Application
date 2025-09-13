@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { addDoc, collection, serverTimestamp, onSnapshot, query, where } from 'firebase/firestore'
+import { addDoc, collection, serverTimestamp, onSnapshot, query, where, orderBy } from 'firebase/firestore'
 import { auth, db } from "../firebase-config";
 
 const Chat = (props) => {
@@ -10,9 +10,9 @@ const Chat = (props) => {
   const [messages, setMessages] = useState([])
 
   const messagesRef = collection(db, "messages")
-
+  
   useEffect(()=>{
-    const queryMessages = query(messagesRef, where("room", "==", room));
+    const queryMessages = query(messagesRef, where("room", "==", room), orderBy("createdAt"));
     const unsubscribe =  onSnapshot(queryMessages, (snapshot)=>{
       let messages = [];
       snapshot.forEach((doc) => {
@@ -41,7 +41,18 @@ const Chat = (props) => {
 
   return (
     <div>
-      <div>{messages.map((message) => <h1>{message.text}</h1>)}</div>
+      <div>
+      <h1>Welcome to: {room.toUpperCase()}</h1>
+      </div>
+      <div>{messages.map((message) => (
+        <div key={message.id}>
+          <span>
+            {message.user}
+          </span>
+          {message.text}
+         
+        </div>
+      ))}</div>
       <form onSubmit={handleSubmit}>
         <input 
           type="text" 
