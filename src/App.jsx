@@ -39,21 +39,23 @@ function App() {
       {room ? (
         <>
         <Chat room={room}/>
-        <button onClick={()=>setRoom(null)} className="btn">Go Back</button>
         </>
           
       ) : (
-        <div className="flex-col" style={{marginBottom: "30px"}}>
-          <h1 className="sub-text" style={{color: "#103cc2"}}>Welcome</h1>
+        <div className="flex-col">
+          <h1 className="sub-text" style={{color: "#103cc2", marginBottom:"20px"}}>Welcome</h1>
 
           <div>
-            <input type="text" ref={roomInputRef} placeholder="Enter Room Name" className="inputGroup" style={{marginRight: "20px"}}/>
+            <input type="text" ref={roomInputRef} placeholder="Enter Room Name.. (eg. room1)" className="inputGroup"/>
             <button className="btn2" onClick={() => setRoom(roomInputRef.current.value)}>Enter Chat</button>
           </div>
         </div>
       )} 
 
-      <div>
+      <div style={{marginTop: "30px"}}>
+        {
+          room ? (<button onClick={()=>setRoom(null)} className="btn" style={{marginRight: "20px"}}>Go Back</button>):(<></>)
+        }
         <button onClick={signUserOut} className="btn">Sign Out</button>
       </div>
     </div>

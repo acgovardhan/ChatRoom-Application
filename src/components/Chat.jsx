@@ -41,26 +41,29 @@ const Chat = (props) => {
 
   return (
     <div>
-      <div>
-      <h1>Welcome to: {room.toUpperCase()}</h1>
-      </div>
-      <div>{messages.map((message) => (
-        <div key={message.id}>
-          <span>
+      
+      <h1 style={{marginBottom:"50px", fontFamily:"Verdana, sans-serif", fontSize:"40px"}}>{room.toUpperCase()}</h1>
+      
+      <div style={{marginBottom: "20px"}}>
+        {messages.map((message) => (
+        <div key={message.id} className="msg-box">
+          <span style={{fontWeight: "bold", marginRight:"10px"}}>
             {message.user}
           </span>
-          {message.text}
+          <span>{message.text}</span>
          
         </div>
-      ))}</div>
+        ))}
+      </div>
       <form onSubmit={handleSubmit}>
         <input 
           type="text" 
           placeholder="type your msg here..." 
           onChange={(e)=> setNewMessage(e.target.value)}
           value={newMessage}
+          className="inputGroup"
         />
-        <button className="btn" type="submit">Send</button>
+        <button className="btn2" type="submit">Send</button>
       </form>
     </div>
   )
