@@ -27,8 +27,9 @@ const Auth = (props) => {
 
   return (
     <div>
-      <p>Sign In With Google To Continue</p>
-      <button onClick={signInWithGoogle}>Sign In with Google</button>
+      <h1 className="sub-text" style={{marginTop: "40px"}}>Sign-In</h1>
+      <h1 className="sub-text" style={{marginBottom: "20px"}} >With <span style={{color:"#4285F4"}}>G</span><span style={{color:"#EA4335"}}>o</span><span style={{color:"#FBBC05"}}>o</span><span style={{color:"#4285F4"}}>g</span><span style={{color:"#34A853"}}>l</span><span style={{color:"#EA4335"}}>e</span></h1>
+      <button className="btn" onClick={signInWithGoogle}>Sign In</button>
     </div>
   )
 }

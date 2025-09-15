@@ -26,28 +26,37 @@ function App() {
 
   if(!isAuth){
     return (
-      <>
+      <div className="bg flex">
         <Auth setIsAuth={setIsAuth}/>
-      </>
+        <h1 className="main-text">DESI CHAT</h1>
+        
+      </div>
     );
   }
 
   return (
-    <> 
+    <div className="bg flex-col"> 
       {room ? (
-          <Chat room={room}/>
+        <>
+        <Chat room={room}/>
+        <button onClick={()=>setRoom(null)} className="btn">Go Back</button>
+        </>
+          
       ) : (
-        <div>
-          <label>Enter Room Name: </label>
-          <input type="text" ref={roomInputRef}/>{/*onChange={(e) => setRoom(e.target.value)} not gud in this case */}
-          <button onClick={() => setRoom(roomInputRef.current.value)}>Enter Chat</button>
+        <div className="flex-col" style={{marginBottom: "30px"}}>
+          <h1 className="sub-text" style={{color: "#103cc2"}}>Welcome</h1>
+
+          <div>
+            <input type="text" ref={roomInputRef} placeholder="Enter Room Name" className="inputGroup" style={{marginRight: "20px"}}/>
+            <button className="btn2" onClick={() => setRoom(roomInputRef.current.value)}>Enter Chat</button>
+          </div>
         </div>
       )} 
 
       <div>
-        <button onClick={signUserOut}>Sign Out</button>
+        <button onClick={signUserOut} className="btn">Sign Out</button>
       </div>
-    </>
+    </div>
   );
   
 }

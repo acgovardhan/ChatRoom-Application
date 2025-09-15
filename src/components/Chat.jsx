@@ -60,7 +60,7 @@ const Chat = (props) => {
           onChange={(e)=> setNewMessage(e.target.value)}
           value={newMessage}
         />
-        <button type="submit">Send</button>
+        <button className="btn" type="submit">Send</button>
       </form>
     </div>
   )
