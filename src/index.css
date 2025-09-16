@@ -85,7 +85,7 @@
 }
 
 .btn2:hover {
-  background-color: #F3F4F6;
+  background-color: #d5d7f4;
   text-decoration: none;
   transition-duration: 0.1s;
 }
@@ -93,13 +93,12 @@
 
 .inputGroup{
   font-size: 100%;
-  width: 275px;
+  width: 350px;
   padding: 0.8em;
   outline: none;
   border: 2px solid rgb(200, 200, 200);
   background-color: transparent;
   border-radius: 20px;
-  margin-right: 25px;
 }
 
 .inputGroup:focus{
